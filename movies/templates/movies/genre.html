@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+Where was {{ genre }} movies filmed
+{% endblock title %}
+
+{% block content %}
+<div class='features'>
+    <h1>Movies in  {{genre}} location</h1>  
+    <p> {{genre.genre_description}} </p>
+    <div class='movie_grid'>  
+        {% for movie in movies%}    
+            <div class='grid-item'>      
+                <a href='{{movie.get_absolute_url}}'><h1 class="movie_title">{{movie.title}}</h1>
+                <img src="{{movie.poster.url}}" class="poster" alt="Poster {{movie.title}} {{movie.year}}"></a>          
+            </div>      
+        {% endfor %}    
+   </div> 
+   <div class='filter_tags'>
+    <h2> All genres </h2>
+    <p>
+        {% for genre in genres%}
+            <a href="{{ genre.get_absolute_url }}">#{{ genre.genre_name }}<a>  
+        {% endfor %}
+    </p> 
+    </div>   
+</div>
+{%endblock%}
+
+

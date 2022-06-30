@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+Where Filmed - {{ title }}
+{% endblock title %}
+
+{% block content %}
+
+<div class='features'>
+    {% comment %}
+    Нужно перенести в более подходящее место
+     {% for genre in genres%}
+        <a href="{{ genre.get_absolute_url  }}">{{ genre.genre_name }}<a>
+    {% endfor %} {% endcomment %}
+    
+    <h1> Series</h1>       
+    <div class='movie_grid'>  
+        {% for movie in series%}    
+            <div class='grid-item'>      
+                <a href='{{movie.get_absolute_url}}'><h1 class="movie_title">{{movie.title}}</h1> 
+                <img src="{{movie.poster.url}}" class="poster"></a>          
+            </div>      
+        {% endfor %}    
+   </div>     
+</div>
+{%endblock%}
+
+

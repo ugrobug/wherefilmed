@@ -1,0 +1,42 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+Where Filmed - {{ title }}
+{% endblock title %}
+
+{% block content %}
+
+<div class='features'>
+    
+    <h1> Search result</h1>       
+    
+        
+        {% if object_list%}  
+        {% for movie in object_list%}    
+        <div class='movie_grid'>
+            <div class='grid-item'>      
+                <a href='{{movie.get_absolute_url}}'><h1 class="movie_title">{{movie.title}}</h1> 
+                <img src="{{movie.poster.url}}" class="poster"></a>          
+            </div> 
+        </div>      
+        {% endfor %}    
+        {% else%}
+        <div class="search_form">
+        <p>We did't find anything, try againg or change your query</p>
+        <p>
+        
+        <form action="{% url 'search_results' %}" method="get">
+            <input name="q" type="text" placeholder="Search...">
+        </form>
+        </div>
+    </p>
+        {% endif %}
+       
+</div>
+{%endblock%}
+
+
+ 
+
+
+

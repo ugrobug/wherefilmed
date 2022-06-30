@@ -1,0 +1,92 @@
+{% extends 'main/layout.html' %}   
+{% load static%}  
+{% load thumbnail %} 
+
+{% block title %}
+Where Filmed - {{ movie.title }}
+{% endblock title %}
+{% block description%}
+        <meta name="description" content='Guide to all the filming locations of {{ movie.title }} {{ movie.year }}, {{movie.description|truncatechars:80 }} '>
+{% endblock%}
+
+{% block content %}
+<div itemscope itemtype="http://schema.org/Movie">
+<div class='features'>
+        <div class='movie-header'>
+            {% if movie.title != movie.original_lang_title%}   
+                <div class="pink-text"> 
+                    {{ movie.original_lang_title }} 
+                </div>            
+            {% endif %} 
+            <div class='title'>     
+            <h1>Where was <span itemprop="name">{{ movie.title }}</span>filmed</h1>
+            </div>    
+        
+            <div class="div-img">  
+                <img class="poster-detail" src='{{ movie.poster.url }}' alt="Poster {{movie.title}} {{movie.year}}" itemprop="image">      
+                            
+                <div class='bg_gradient'>
+                            <p> {{ movie.year }}, 
+                                {% for a_genre in movie.genre.all %}
+                                #<a href="{{a_genre.get_absolute_url}}" itemprop="genre">{{ a_genre }}</a>
+                                {% endfor %}<br>
+                                Filming country: 
+                                {% for mov in movie.country.all %}
+                                <a href="{{mov.get_absolute_url}}"> #{{mov}}</a>
+                                {% endfor%}
+                                
+                            </p>
+                </div> 
+            </div>
+        </div> 
+
+    <div class="movie-content" >  
+        <p itemprop="description">{{ movie.description | linebreaks }}</p>
+        <h2> Locations </h2>
+        {% for location in locations%}
+            <h3>{{location.title_location}}</h3>
+            <div class="grey-text">{{location.address}}</div>
+            <p><b>Scene where</b> {{location.scene_description}}</p>
+            <p><b>Scene was shooting</b> {{location.movie_spot}}</p>
+            <div class='icon-block'>
+            <img src="{% static 'main/img/gps.webp'%}"  width="20" height="20"> <a href="{{location.map_link}}"><span>On the map</span></a>
+            <img src="{% static 'main/img/clock.webp'%}"  width="20" height="20"><span>Timing: <span>{{location.timing}}<br>
+            </div>
+            <h4>Real</h4>
+            <div class="loc-gallery-bloc">
+                {%for pic in location.images.all%}
+                    <a href='{{pic.real_image.url}}' data-lightbox='{{location.title_location}}'>
+                    {% thumbnail pic.real_image "250x150" crop="center" as im %}
+                    <img class="location_img" src='{{ im.url }}' width="{{ im.width }}" height="{{ im.height }}" alt="Real image from {{location.title_location}}"> 
+                    {% endthumbnail %}
+                </a>
+                {%endfor%}
+            </div>
+            <h4>In movie</h4>
+            <div class="loc-gallery-bloc">
+                {%for pic in location.imagesM.all%}
+                    <a href='{{pic.movie_image.url}}' data-lightbox='1{{location.title_location}}'>
+                        {% if '.gif' in pic.movie_image.url %}
+                            <img class="location_img" src='{{ pic.movie_image.url }}' alt="Movie image from {{location.title_location}}"> 
+                        {% else %}
+                        {% thumbnail pic.movie_image "250x150" crop="center" as im %}
+                            <img class="location_img" src='{{ im.url }}' width="{{ im.width }}" height="{{ im.height }}" alt="Movie image from {{location.title_location}}"> 
+                        {% endthumbnail %}
+                        {% endif %}
+                    </a>
+                {%endfor%}
+            </div>
+            <br>
+        {%endfor%}
+        <br>
+        {% if request.user.is_authenticated %}
+            <a href='{% url 'movies_update' movie.id %}' class='btn btn-info'> update </a>
+            <a href='{% url 'movies_delete' movie.id %}' class='btn btn-danger'> delete </a>
+        {% endif %}
+    </div>
+</div>
+</div>
+{%endblock%}
+
+
+

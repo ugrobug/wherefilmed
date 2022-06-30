@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+Where Filmed - {{ title }}
+{% endblock title %}
+
+{% block content %}
+
+<div class="search_form">
+    <form action="{% url 'search_results' %}" method="get">
+        <input name="q" type="text" placeholder="Search...">
+    </form>
+    </div>
+
+<div class='features'>    
+    <h1> Movies</h1>       
+    <div class='movie_grid'>  
+        {% for movie in movies%}    
+            <div class='grid-item'>      
+                <a href='{{movie.get_absolute_url}}'><h1 class="movie_title">{{movie.title}}</h1> 
+                <img src="{{movie.poster.url}}" class="poster" alt="Poster {{movie.title}} {{movie.year}}"></a>          
+            </div>      
+        {% endfor %}    
+   </div>     
+</div>
+{%endblock%}
+
+

@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+Where Filmed - {{ title }}
+{% endblock title %}
+
+{% block content %}
+<div class='features'>
+    <h1> Movies was filmed in {{country}}</h1>  
+    <p> {{country.country_description}} </p>     
+    <div class='movie_grid'>  
+        {% for movie in movies%}    
+            <div class='grid-item'>      
+                <a href='{{movie.get_absolute_url}}'><h1 class="movie_title">{{movie.title}}</h1>
+                <img src="{{movie.poster.url}}" class="poster" alt="Poster {{movie.title}} {{movie.year}}"></a>          
+            </div>      
+        {% endfor %}    
+   </div>   
+   <div class='filter_tags'>
+    <h2>All countries</h2>
+    <p>
+    {% for country in countries%}
+         <a href="{{ country.get_absolute_url }}">#{{ country.country_name }}<a>
+    {% endfor %}
+         </p>
+         </div>  
+</div>
+{%endblock%}
+
+

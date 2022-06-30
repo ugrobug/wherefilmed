@@ -1,0 +1,17 @@
+.movie-content {
+    max-width: 75%;
+    min-width: 350px;
+
+}
+h1, h2, p{
+    margin-left: 10px;
+}
+
+.movie_grid {
+    margin: 10px;
+  }
+
+.grid-item {
+    width: 250px;
+}
+
