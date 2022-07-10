@@ -16,9 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'main',
     'movies',
@@ -34,6 +32,15 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
 ]
 
+# SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = ('django-insecure-!6%ic*pkkdkeu#-#8g3i0l2$mq$6an*)y6f-+l$823zq#5z3c7a+wo')
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
+# DEBUG = bool(os.environ.get('DJANGO_DEBUG', True) )
+DEBUG = bool(int(os.environ.get("DEBUG", default=1)))
+
+# ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 
 MIDDLEWARE = [
@@ -68,11 +75,29 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wherefilmed.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': os.environ.get("SQL_ENGINE", 'django.db.backends.mysql'),
+        'NAME': os.environ.get("SQL_DATABASE", 'wherefilmed'),
+        'USER': os.environ.get("SQL_USER", 'ugrobug'),
+        'PASSWORD': os.environ.get("SQL_PASSWORD", 'Mkm695nbv45fa8phg'),
+        'HOST': os.environ.get("SQL_HOST", 'localhost'),
+        'PORT': os.environ.get("SQL_PORT", '3306'),
+    }
+}
 
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'wherefilmed',
+#         'USER': 'ugrobug',
+#         'PASSWORD': 'Mkm695nbv45fa8phg',
+#         'HOST': 'wherefilmed_db',
+#         'PORT': '3306'
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -104,7 +129,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -112,7 +136,10 @@ STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '/var/www/static/',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -121,8 +148,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 INTERNAL_IPS = ["127.0.0.1"]
 
-try:
-    from .local_settings import *
-except ImportError:
-    from .prod_settings import * 
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:8080',
+    'http://localhost:8081',
+    'http://localhost:8000'
+]
+
+
 

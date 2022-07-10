@@ -9,7 +9,8 @@ SECRET_KEY = ('django-insecure-!6%ic*pkkdkeu#-#8g3i0l2$mq$6an*)y6f-+l$823zq#5z3c
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://wherefilmed.org/']
+ALLOWED_HOSTS = ['']
+#ALLOWED_HOSTS = ['https://wherefilmed.org/']
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
@@ -22,7 +23,7 @@ DATABASES = {
         'NAME': 'wherefilmed',
         'USER': 'ugrobug',
         'PASSWORD': 'Mkm695nbv45fa8phg',
-        'HOST': 'localhost'
-        
+        'HOST': 'wherefilmed_db',
+        'PORT': '5432'
     }
 }
