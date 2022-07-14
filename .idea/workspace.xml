@@ -2,20 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55549010-8d9d-4b89-9100-f78aa04cf00a" name="Changes" comment="Deploy">
-      <change afterPath="$PROJECT_DIR$/.env.dev" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.prod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.prod.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wherefilmed/prestart.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.dev" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.prod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.prod.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/req.txt" beforeDir="false" afterPath="$PROJECT_DIR$/req.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wherefilmed/local_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/wherefilmed/local_settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wherefilmed/prod_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/wherefilmed/prod_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datadump.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.prod.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrypoint.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/static/main/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/main/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/static/main/css/mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/main/css/mobile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movies/templates/movies/details_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/movies/templates/movies/details_view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/req.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wherefilmed/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/wherefilmed/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,6 +68,14 @@
       <option name="presentableId" value="Default" />
       <updated>1656584089376</updated>
     </task>
+    <task id="LOCAL-00001" summary="Deploy">
+      <created>1657474466112</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657474466112</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

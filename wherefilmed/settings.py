@@ -33,14 +33,14 @@ INSTALLED_APPS = [
 ]
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = ('django-insecure-!6%ic*pkkdkeu#-#8g3i0l2$mq$6an*)y6f-+l$823zq#5z3c7a+wo')
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = ('django-insecure-!6%ic*pkkdkeu#-#8g3i0l2$mq$6an*)y6f-+l$823zq#5z3c7a+wo')
+
 
 # DEBUG = bool(os.environ.get('DJANGO_DEBUG', True) )
-DEBUG = bool(int(os.environ.get("DEBUG", default=1)))
+DEBUG = True
 
-# ALLOWED_HOSTS = ['127.0.0.1']
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = ['127.0.0.1']
+
 
 
 MIDDLEWARE = [
@@ -77,27 +77,17 @@ WSGI_APPLICATION = 'wherefilmed.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get("SQL_ENGINE", 'django.db.backends.mysql'),
-        'NAME': os.environ.get("SQL_DATABASE", 'wherefilmed'),
-        'USER': os.environ.get("SQL_USER", 'ugrobug'),
-        'PASSWORD': os.environ.get("SQL_PASSWORD", 'Mkm695nbv45fa8phg'),
-        'HOST': os.environ.get("SQL_HOST", 'localhost'),
-        'PORT': os.environ.get("SQL_PORT", '3306'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'wherefilmed',
+        'USER': 'ugrobug',
+        'PASSWORD': 'Mkm695nbv45fa8phg',
+        'HOST': 'localhost',
+        'PORT': '3306'
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'wherefilmed',
-#         'USER': 'ugrobug',
-#         'PASSWORD': 'Mkm695nbv45fa8phg',
-#         'HOST': 'wherefilmed_db',
-#         'PORT': '3306'
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -148,11 +138,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 INTERNAL_IPS = ["127.0.0.1"]
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8080',
-    'http://localhost:8081',
-    'http://localhost:8000'
-]
+# CORS_ORIGIN_WHITELIST = [
+#     'http://localhost:8080',
+#     'http://localhost:8081',
+#     'http://localhost:8000'
+# ]
 
 
 

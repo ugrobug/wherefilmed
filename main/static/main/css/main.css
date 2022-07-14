@@ -1,5 +1,5 @@
-@import url(mobile.css) (max-width: 768px);
-@import url(desktop.css) (min-width: 769px);
+@import url (mobile.css) (min-width: 200px) and (max-width:450px);
+@import url (desktop.css) (min-width: 451px);
 
 
 body {    
@@ -7,6 +7,16 @@ body {
     margin: 0px;
 } 
 
+a {
+    color: white;
+    }
+
+a:visited {
+    color: white;
+   }
+a:active {
+    color: white;
+   }
 
 .title {
     max-width: 50%;
