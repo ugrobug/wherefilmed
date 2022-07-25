@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 {% extends 'main/layout.html' %}
 
 
@@ -26,19 +27,23 @@ Where Filmed - {{ title }}
     <a href="{% url 'movies_home' %}"> See all movies </a>
  
     <h2> Series location </h2>
+    <div class='movie_grid'>
     {% for serial in series%}  
     <div class='grid-item'>   
         <a href='{{serial.get_absolute_url}}'><h1 class="movie_title">{{serial.title}}</h1> 
         <img src="{{serial.poster.url}}" class="poster"></a>        
         </div>
     {% endfor%}
+        </div>
     <h2> Music clips location </h2>
+    <div class='movie_grid'>
     {% for clip in clips%}  
     <div class='grid-item'>   
         <a href='{{clip.get_absolute_url}}'><h1 class="movie_title">{{clip.title}}</h1> 
         <img src="{{clip.poster.url}}" class="poster"></a>        
         </div>
     {% endfor%}
+        </div>
     
 </div>
 {%endblock%}

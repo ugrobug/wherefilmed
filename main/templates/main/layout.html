@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 {% load static%}
 {% load webp %}
-<!doctype html>
+
 <html lang="eng">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width; initial-scale=1">
         <title> {% block title %}{% endblock %}</title>
         {% block description %} {% endblock %}
         <link rel="stylesheet"  href="{% static 'main/css/main.css'%}">
@@ -19,38 +21,38 @@
          <a href="/">
         <img src="{% static 'main/img/logo.webp'%}" alt=""  height="50">
          </a>
-        <a  href="/"><h2>WhereFilmed</h2</a>
+        <a  href="/"><h2>WhereFilmed</h2></a>
         </div>
-               <div class='top-menu'>
+        <div class='top-menu'>
                 <ul>
                   <li class="nav-item">
                      {% comment %} <a href='#'><img src="{% static 'main/img/search.svg'%}" alt="" class="filter-white" width="20" height="20">  {% endcomment %}
-                  </li>
-                    <li class="nav-item">
+                   </li>
+                  <li class="nav-item">
                       <a href="{% url 'movies_home' %}" class="nav-link">Movies |</a>
-                    </li>      
-                    <li class="nav-item">
+                   </li>
+                  <li class="nav-item">
                       <a href="{% url 'series' %}" class="nav-link">Series |</a>
-                    </li> 
-                    <li class="nav-item">
+                   </li>
+                  <li class="nav-item">
                       <a href="{% url 'clips' %}" class="nav-link">Clips </a>
-                    </li>            
-                  </ul>
-                </div>
-           
-        </div>
+                   </li>
+                </ul>
+            </div>
+          </div>
         <main>
             {% block content %}
             {% endblock %}
         </main>
         
-        <div class="footer"> 
+        <div class="footer">
           <div class='logo'>
             <a href="/">
            <img src="{% static 'main/img/logo.webp'%}" alt=""  height="50">
             </a>
-           <a  href="/"><h2>WhereFilmed</h2</a>
+           <a  href="/"><h2>WhereFilmed</h2></a>
            </div>
+
 
           <div>
             <ul>
@@ -66,10 +68,7 @@
                 </li>  
                 <li class="nav-item">
                   <a href="{% url 'about' %}" class="nav-link">About </a>
-                </li>  
-                <li class="nav-item">
-                  <a href="{% url 'create' %}" class="nav-link">New movie</a>
-                </li>            
+                </li>
               </ul>
 
               <div class="social-icon">
@@ -77,9 +76,7 @@
                   <a href='#'><img src="{% static 'main/img/instagram-brands.svg'%}" alt="" class="filter-white" width="20" height="20">
                
                   <a href='#'><img src="{% static 'main/img/telegram-brands.svg'%}" alt="" class="filter-white" width="20" height="20">
-                
-                
-              </div>
+                </div>
             </div>
 
         </div> 
